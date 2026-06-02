@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #08090a;
+  --foreground: #f0ede8;
+  --accent: #e05c3a;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+  }
+
+  select,
+  input,
+  button {
+    @apply text-foreground;
+  }
+}
+
+/* Recharts: prevent layout blowout in grid/flex parents */
+.chart-container {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: 260px;
+}
+
+.chart-container .recharts-responsive-container {
+  min-width: 0 !important;
+}
+
+.chart-container .recharts-wrapper {
+  margin: 0 auto;
+}
+
+.chart-container .recharts-surface {
+  overflow: visible;
+}
