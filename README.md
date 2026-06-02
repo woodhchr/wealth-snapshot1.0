@@ -13,12 +13,27 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy to Vercel
 
+### Fix for `404: NOT_FOUND` on deploy
+
+That error almost always means Vercel is building the **wrong folder** or has a bad **Output Directory** setting.
+
+In your Vercel project → **Settings** → **General**:
+
+| Setting | Value |
+|--------|--------|
+| **Root Directory** | `.` if this repo *is* `wealth-snapshot` (you see `package.json` at the top). Use `wealth-snapshot` only if the repo root is the parent `fractr` folder. |
+| **Framework Preset** | Next.js |
+| **Build Command** | `npm run build` (default) |
+| **Output Directory** | **Leave empty** — do not set `.next`, `out`, or `public` |
+| **Install Command** | `npm install` (default) |
+
+Then **Deployments** → open the latest deployment → **Redeploy**.
+
 ### Option A: Vercel Dashboard (recommended)
 
-1. Push this project to a GitHub repository.
+1. Push this project to a GitHub repository (repo root should contain `package.json` and `app/`).
 2. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
-3. Set the **Root Directory** to `wealth-snapshot` if the repo root is the parent `fractr` folder; otherwise leave it as `.`.
-4. Vercel auto-detects Next.js — click **Deploy**.
+3. Confirm **Root Directory** as above, then click **Deploy**.
 
 Your live URL will look like `https://wealth-snapshot-xxx.vercel.app`.
 
