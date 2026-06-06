@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Wealth Snapshot",
-  description: "My Wealth Snapshot",
+  title: "Fractr — Wealth Intelligence Platform",
+  description: "Track assets, liabilities, and net worth with Fractr.",
 };
 
 export default function RootLayout({
